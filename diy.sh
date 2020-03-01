@@ -89,3 +89,9 @@ rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
+# 删除feeds里的冲突插件
+rm -rf ./feeds/packages/net/frp
+rm -rf ./feeds/packages/net/kcptun
+rm -rf ./feeds/packages/net/smartdns
+rm -rf ./feeds/luci/applications/luci-app-frpc
+rm -rf ./feeds/luci/applications/luci-app-frps
