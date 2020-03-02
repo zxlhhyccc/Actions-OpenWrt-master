@@ -95,10 +95,14 @@ rm -f ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-ap
 wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
+# 编译feeds中的需修改ksmbd的makefile代码
+rm -f ./feeds/packages/kernel/ksmbd/Makefile
+wget -P ./feeds/packages/kernel/ksmbd/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/kernel/ksmbd/Makefile
 # 删除feeds里的冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
 rm -rf ./feeds/packages/net/smartdns
+rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
 rm -rf ./package/openwrt-package/lean/ksmbd
