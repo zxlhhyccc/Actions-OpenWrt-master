@@ -98,6 +98,9 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 # 编译feeds中的需修改ksmbd的makefile代码
 rm -f ./feeds/packages/kernel/ksmbd/Makefile
 wget -P ./feeds/packages/kernel/ksmbd/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/kernel/ksmbd/Makefile
+# 更换feeds中的exfat-nofuse源码适配5.4内核
+rm -rf ./feeds/packages/kernel/exfat-nofuse
+svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 删除feeds里的冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
