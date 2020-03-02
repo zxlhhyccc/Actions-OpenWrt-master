@@ -24,7 +24,7 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  CONFIG_FILE: .config
+  CONFIG_FILE: 5.4.config
   DIY_SH: diy5.4.sh
   SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
