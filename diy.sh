@@ -101,3 +101,5 @@ rm -rf ./feeds/packages/net/kcptun
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
+rm -rf ./package/openwrt-package/lean/ksmbd
+rm -rf ./package/openwrt-package/lean/ksmbd-tools
