@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt
+name: 4.14-Build OpenWrt
 
 on:
   release:
