@@ -41,6 +41,9 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openss
 # 更换19.07的network源码包测试能否解决上网问题
 rm -rf ./package/network
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network package/network
+# 更换19.07的rpcd源码包测试能否解决上网问题
+rm -rf ./package/system/rpcd
+svn co https://github.com/openwrt/openwrt/trunk/package/system/rpcd package/system/rpcd
 # 添加4.19内核补丁
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
