@@ -77,7 +77,7 @@ jobs:
     - name: Restart Update Install feeds
       run: |
         cd openwrt
-        rm -rf tmp
+        rm -rf tmp staging_dir
         ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: SSH connection to Actions
