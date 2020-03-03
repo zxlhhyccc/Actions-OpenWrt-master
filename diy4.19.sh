@@ -32,12 +32,15 @@ wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.
 rm -rf ./package/libs/openssl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
 # 修改network中防火墙等源码包
-rm -rf ./package/network/config/firewall
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
-rm -rf ./package/network/utils/iptables
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
-rm -rf ./package/network/services/uhttpd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
+# rm -rf ./package/network/config/firewall
+# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
+# rm -rf ./package/network/utils/iptables
+# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
+# rm -rf ./package/network/services/uhttpd
+# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
+# 更换19.07的network源码包测试能否解决上网问题
+rm -rf ./package/network
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network package/network
 # 添加4.19内核补丁
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
