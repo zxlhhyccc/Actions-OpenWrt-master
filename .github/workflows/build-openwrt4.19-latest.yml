@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: 4.19-Build OpenWrt
+name: 4.19(latest)Build OpenWrt
 
 on:
   release:
@@ -22,10 +22,10 @@ on:
 #    types: started
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_URL: https://github.com/project-openwrt/openwrt-latest.git
   REPO_BRANCH: master
   CONFIG_FILE: 4.19.config
-  DIY_SH: diy4.19.sh
+  DIY_SH: diy4.19-latest.sh
   SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -58,6 +58,11 @@ jobs:
     - name: 自定义插件
       run: |
         cd openwrt
+        rm -rf ./package/ctcgew
+        rm -rf ./package/lean
+        rm -rf ./package/lienol
+        rm -rf ./package/ntlf9t
+        rm -rf ./package/zxlhhyccc
         git clone  https://github.com/zxlhhyccc/bf-package.git package/openwrt-package
        
     - name: Update feeds
