@@ -38,21 +38,6 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 更换19.07的network源码包测试能否解决上网问题(正常)
-# rm -rf ./package/network
-# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network package/network
-# 更换19.07的rpcd源码包测试能否解决上网问题（正常）
-# rm -rf ./package/system/rpcd
-# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/package/rpcd package/system/rpcd
-# 更换19.07的network相关源码包测试能否解决上网问题
-rm -rf ./package/network/services/dnsmasq
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/dnsmasq package/network/services/dnsmasq
-rm -rf ./package/network/services/odhcpd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
-rm -rf ./package/network/services/odhcpd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
-rm -rf ./package/network/ipv6/odhcp6c
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/ipv6/odhcp6c package/network/ipv6/odhcp6c
 # 添加4.19内核补丁
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
