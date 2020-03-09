@@ -70,8 +70,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 # 升级feeds中的exfat-nofuse源码
-rm -rf ./feeds/packages/kernel/exfat-nofuse
-svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+#rm -rf ./feeds/packages/kernel/exfat-nofuse
+#svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun

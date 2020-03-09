@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: 4.14-Build OpenWrt
+name: rly-4.19(5.4)-Build OpenWrt
 
 on:
   release:
@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - '4.14.config'
+      - 'rly-4.19-5.4.config'
 #  schedule:
 #    - cron: 0 8 * * 5
 #  watch:
@@ -24,8 +24,8 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  CONFIG_FILE: 4.14.config
-  DIY_SH: diy4.14.sh
+  CONFIG_FILE: rly-4.19-5.4.config
+  DIY_SH: diy4.19.sh
   SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -98,7 +98,6 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3|' target/linux/bcm53xx/image/Makefile
         make -j$(nproc) || make -j1 V=s 2>&1 ; echo -e '\a'
         echo "::set-output name=status::success"
 

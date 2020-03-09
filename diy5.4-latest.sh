@@ -59,8 +59,8 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 rm -f ./feeds/packages/kernel/ksmbd/Makefile
 wget -P ./feeds/packages/kernel/ksmbd/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/kernel/ksmbd/Makefile
 # 升级feeds中的exfat-nofuse源码
-rm -rf ./feeds/packages/kernel/exfat-nofuse
-svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+#rm -rf ./feeds/packages/kernel/exfat-nofuse
+#svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
