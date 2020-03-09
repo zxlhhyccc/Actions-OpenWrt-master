@@ -48,9 +48,18 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/lean/openwr
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 rm -f ./target/linux/generic/config-5.4
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.4
-# 添加x86默认编译包
+# 添加bcm53xx默认内核为5.4（在4.14情况下.config确定）
+rm -f ./target/linux/bcm53xx/Makefile
+wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.14-5.4-bcm53xx/Makefile
+# 添加x86默认编译包及内核为5.4（在4.14情况下.config确定)
 rm -f ./target/linux/x86/Makefile
-wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/x86/Makefile
+wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.14-5.4-x86/Makefile
+# 添加bcm53xx默认内核为5.4（在4.19情况下.config确定）
+rm -f ./target/linux/bcm53xx/Makefile
+wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
+# 添加x86默认编译包及内核为5.4（在4.19情况下.config确定)
+rm -f ./target/linux/x86/Makefile
+wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-x86/Makefile
 # 添加upx压缩源码
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools/ucl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/upx tools/upx

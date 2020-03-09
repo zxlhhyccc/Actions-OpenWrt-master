@@ -28,10 +28,10 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openss
 # 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
 rm -rf ./package/network/services/odhcpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
-# 添加bcm53xx默认内核为4.19
+# 添加bcm53xx默认内核为4.14
 rm -f ./target/linux/bcm53xx/Makefile
 wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
-# 添加x86默认编译包及内核为4.19
+# 添加x86默认编译包及内核为4.14
 rm -f ./target/linux/x86/Makefile
 wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-x86/Makefile
 # 去除feeds中的material主题多余固件名
