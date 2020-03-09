@@ -38,6 +38,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
+# 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
+rm -rf ./package/network/services/odhcpd
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
 # 修改fullconenat加速模块Makefile适配5.4内核
 rm -rf ./package/openwrt-package/lean/openwrt-fullconenat
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
@@ -74,5 +77,4 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./package/openwrt-package/lean/ksmbd
-rm -rf ./package/openwrt-package/lean/ksmbd-tools
+rm -rf ./feeds/luci/applications/luci-app-ksmbd

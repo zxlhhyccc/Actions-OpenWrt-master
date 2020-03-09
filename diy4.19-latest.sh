@@ -25,6 +25,9 @@ wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.
 # openssl升级为1.1.1e
 rm -rf ./package/libs/openssl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
+# 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
+rm -rf ./package/network/services/odhcpd
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
 # 去除feeds中的material主题多余固件名
 rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
@@ -43,5 +46,4 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./package/openwrt-package/lean/ksmbd
-rm -rf ./package/openwrt-package/lean/ksmbd-tools
+rm -rf ./feeds/luci/applications/luci-app-ksmbd
