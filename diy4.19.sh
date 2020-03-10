@@ -39,8 +39,8 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/uti
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 # 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
-rm -rf ./package/network/services/odhcpd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
+#rm -rf ./package/network/services/odhcpd
+#svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
 # 添加4.19内核补丁
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
