@@ -18,8 +18,8 @@ on:
       - 'rly-4.19-5.4.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: started
+  watch:
+    types: started
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
@@ -98,7 +98,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 V=s 2>&1 ; echo -e '\a'
+        make -j4 || make -j3 || make -j2 || make -j1 V=s 2>&1 ; echo -e '\a'
         echo "::set-output name=status::success"
 
     - name: Upload bin directory
