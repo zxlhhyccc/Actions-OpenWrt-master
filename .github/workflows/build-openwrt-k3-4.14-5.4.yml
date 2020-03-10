@@ -99,7 +99,7 @@ jobs:
         cd openwrt
         echo -e "$(nproc) thread compile"
         sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3|' target/linux/bcm53xx/image/Makefile
-        make -j$(nproc) || make -j1 V=s 2>&1 ; echo -e '\a'
+        make -j4 || make -j3 || make -j2 || make -j1 V=s 2>&1 ; echo -e '\a'
         echo "::set-output name=status::success"
 
     - name: Upload bin directory
