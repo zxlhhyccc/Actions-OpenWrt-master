@@ -46,7 +46,9 @@ svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/se
 # 替换network中为19.07的iputils源码包解决iputils-traceroute6
 rm -rf ./feeds/packages/net/iputils
 svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/utils/iputils package/network/utils/iputils
-# 替换system中为19.07的ubus源码包解决进程通讯
+# 替换system中为19.07的源码包解决进程通讯
+rm -rf ./package/network/config/netifd
+svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/config/netifd package/network/config/netifd
 rm -rf ./package/system/ubus
 svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/system/ubus package/system/ubus
 # 添加4.14内核补丁
