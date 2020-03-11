@@ -41,7 +41,7 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/ser
 # 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
 rm -rf ./package/network/services/odhcpd
 svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/services/odhcpd package/network/services/odhcpd
-rm -rf ./package/network/services/odhcpd
+rm -rf ./package/network/services/dnsmasq
 svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/services/dnsmasq package/network/services/dnsmasq
 # 替换network中为19.07的iputils源码包解决iputils-traceroute6
 rm -rf ./feeds/packages/net/iputils
