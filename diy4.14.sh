@@ -40,17 +40,17 @@ rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 # 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
 rm -rf ./package/network/services/odhcpd
-svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/services/odhcpd package/network/services/odhcpd
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/services/odhcpd package/network/services/odhcpd
 rm -rf ./package/network/services/dnsmasq
 svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/services/dnsmasq package/network/services/dnsmasq
 # 替换network中为19.07的iputils源码包解决iputils-traceroute6
 rm -rf ./feeds/packages/net/iputils
-svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/utils/iputils package/network/utils/iputils
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/utils/iputils package/network/utils/iputils
 # 替换system中为19.07的源码包解决进程通讯
 rm -rf ./package/network/config/netifd
-svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/config/netifd package/network/config/netifd
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/config/netifd package/network/config/netifd
 rm -rf ./package/system/ubus
-svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/system/ubus package/system/ubus
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/system/ubus package/system/ubus
 # 添加4.14内核补丁
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.14/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.14/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
