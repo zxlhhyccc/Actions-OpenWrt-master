@@ -42,7 +42,7 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/ser
 rm -rf ./package/network/services/odhcpd
 svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/services/odhcpd package/network/services/odhcpd
 rm -rf ./package/network/services/dnsmasq
-svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/services/dnsmasq package/network/services/dnsmasq
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/services/dnsmasq package/network/services/dnsmasq
 # 替换network中为19.07的iputils源码包解决iputils-traceroute6
 rm -rf ./feeds/packages/net/iputils
 svn co https://github.com/project-openwrt/openwrt-19.07/trunk/package/network/utils/iputils package/network/utils/iputils
