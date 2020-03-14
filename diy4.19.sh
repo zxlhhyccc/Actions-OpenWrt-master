@@ -31,16 +31,21 @@ wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.
 # openssl升级为1.1.1e
 rm -rf ./package/libs/openssl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
-# 修改network中防火墙等源码包
+# 替换为19.07的network包解决master不能解析dns问题
+rm -rf ./package/network
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network package/network
+# 还原master的network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
 rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
-#rm -rf ./package/network/services/odhcpd
-#svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
+# 替换network中为19.07的iputils源码包解决iputils-traceroute6
+rm -rf ./feeds/packages/net/iputils
+# 替换system中为19.07的rpcd源码包解决所用19.07的network源码包编译依赖问题
+rm -rf ./package/system/rpcd
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/system/rpcd package/system/rpcd
 # 添加4.19内核补丁
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
