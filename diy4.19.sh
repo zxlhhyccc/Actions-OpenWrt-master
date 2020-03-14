@@ -34,6 +34,7 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openss
 # 替换为19.07的network包解决master不能解析dns问题
 rm -rf ./package/network
 svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network package/network
+rm -rf ./package/network/.svn
 # 还原master的network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
