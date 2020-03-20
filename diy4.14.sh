@@ -25,14 +25,6 @@ rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
-# 修改dnsmasq解析文件路径为/tmp/resolv.conf.auto
-# rm -f ./package/network/services/dnsmasq/files/dhcp.conf
-# wget -P ./package/network/services/dnsmasq/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/files/dhcp.conf
-# rm -f ./package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
-# wget -P ./package/network/services/dnsmasq/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
-# chmod 755 ./package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
-# rm -f ./package/network/services/dnsmasq/files/dnsmasq.init
-# wget -P ./package/network/services/dnsmasq/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/files/dnsmasq.init
 chmod 755 ./package/network/services/dnsmasq/files/dnsmasq.init
 # 开启wifi
 rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -47,19 +39,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
-# rm -rf ./package/network/services/odhcpd
-# svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/services/odhcpd package/network/services/odhcpd
-# rm -rf ./package/network/services/dnsmasq
-# svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/services/dnsmasq package/network/services/dnsmasq
 # 替换network中为19.07的iputils源码包解决iputils-traceroute6
 rm -rf ./feeds/packages/net/iputils
 svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/utils/iputils package/network/utils/iputils
-# 替换system中为19.07的源码包解决进程通讯
-# rm -rf ./package/network/config/netifd
-# svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/config/netifd package/network/config/netifd
-# rm -rf ./package/system/ubus
-# svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/system/ubus package/system/ubus
 # 添加4.14内核补丁
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.14/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.14/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
