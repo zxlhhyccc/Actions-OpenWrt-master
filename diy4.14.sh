@@ -26,9 +26,6 @@ wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhy
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 添加dns解析文件路径的软链接
-rm -f ./package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
-wget -P ./package/network/services/dnsmasq/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
-chmod 755 ./package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
 chmod 755 ./package/network/services/dnsmasq/files/dnsmasq.init
 # 开启wifi
 rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
