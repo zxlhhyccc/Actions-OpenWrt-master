@@ -41,14 +41,6 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-rm -rf ./package/network/services/dnsmasq
-svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/services/dnsmasq package/network/services/dnsmasq
-rm -rf ./package/network/config/netifd
-svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/config/netifd package/network/config/netifd
-rm -f ./feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/network/dhcp.js
-wget -P ./feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/network/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/dhcp.js
-rm -f ./package/base-files/files/etc/init.d/boot
-wget -P ./package/base-files/files/etc/init.d/ https://raw.githubusercontent.com/openwrt/openwrt/openwrt-19.07/package/base-files/files/etc/init.d/boot
 # 替换network中为19.07的iputils源码包解决iputils-traceroute6
 rm -rf ./feeds/packages/net/iputils
 svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network/utils/iputils package/network/utils/iputils
