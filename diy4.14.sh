@@ -25,6 +25,10 @@ rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
+# 添加dns解析文件路径的软链接
+rm -f ./package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
+wget -P ./package/network/services/dnsmasq/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
+chmod 755 ./package/network/services/dnsmasq/files/50-dnsmasq-migrate-resolv-conf-auto.sh
 chmod 755 ./package/network/services/dnsmasq/files/dnsmasq.init
 # 开启wifi
 rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -70,7 +74,7 @@ rm -f ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-ap
 wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
-svn co https://github.com/openwrt/packages/branches/openwrt-19.07/utils/opensc feeds/packages/utils/opensc
+svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
