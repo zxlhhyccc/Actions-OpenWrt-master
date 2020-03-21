@@ -25,8 +25,6 @@ rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
-# 添加dns解析文件路径的软链接
-chmod 755 ./package/network/services/dnsmasq/files/dnsmasq.init
 # 添加feeds中的hplip依赖libcups改为cups
 rm -rf ./feeds/packages/utils/hplip/Makefile
 wget -P ./feeds/packages/utils/hplip/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/utils/hplip/Makefile
