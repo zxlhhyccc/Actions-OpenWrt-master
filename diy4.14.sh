@@ -73,6 +73,9 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
+# 添加feeds里的luci-app-firewall加速开关
+rm -rf ./feeds/luci/applications/luci-app-firewall
+svn co https://github.com/project-openwrt/luci-latest/tree/master/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
