@@ -74,8 +74,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
 # 修改替换feeds里的luci-app-firewall加速开关等源码包
-rm -rf ./feeds/luci/applications/luci-app-firewall
-svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
+# rm -rf ./feeds/luci/applications/luci-app-firewall
+# svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
 rm -rf ./feeds/luci/applications/luci-app-transmission
 svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-transmission
 rm -rf ./feeds/packages/net/transmission-web-control
