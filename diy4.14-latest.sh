@@ -45,3 +45,6 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
+rm -rf ./feeds/packages/net/kcptun
+rm -rf ./packages/lean/openwrt-kcptun
+svn co  https://github.com/zxlhhyccc/bf-package/trunk/lean/kcptun packages/lean/kcptun
