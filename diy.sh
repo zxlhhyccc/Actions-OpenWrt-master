@@ -36,9 +36,6 @@ wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhycc
 # 开启wifi
 rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
 wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
-# openssl升级为1.1.1e
-rm -rf ./package/libs/openssl
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
 # 修改network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
