@@ -25,9 +25,6 @@ wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.
 # openssl升级为1.1.1e
 rm -rf ./package/libs/openssl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
-# 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
-rm -rf ./package/network/services/odhcpd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
 # 添加bcm53xx默认内核为4.14
 rm -f ./target/linux/bcm53xx/Makefile
 wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
@@ -43,13 +40,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 # 升级feeds中的exfat-nofuse源码
-#rm -rf ./feeds/packages/kernel/exfat-nofuse
-#svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+ rm -rf ./feeds/packages/kernel/exfat-nofuse
+ svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 删除feeds里的与自有包冲突插件
-rm -rf ./feeds/packages/net/frp
-rm -rf ./feeds/packages/net/kcptun
 rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
-rm -rf ./feeds/luci/applications/luci-app-frpc
-rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./feeds/luci/applications/luci-app-ksmbd
