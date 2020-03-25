@@ -77,10 +77,10 @@ rm -rf ./feeds/luci/applications/luci-app-transmission
 svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-transmission
 rm -rf ./feeds/packages/net/transmission-web-control
 svn co https://github.com/project-openwrt/packages-latest/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
-rm -rf ./feeds/packages/net/ddns-scripts
-svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/ddns-scripts feeds/packages/net/ddns-scripts
-rm -rf ./feeds/luci/applications/luci-app-ddns
-svn co https://github.com/openwrt/luci/branches/openwrt-19.07/applications/luci-app-ddns feeds/luci/applications/luci-app-ddns
+# rm -rf ./feeds/packages/net/ddns-scripts
+# svn co https://github.com/openwrt/packages/branches/openwrt-19.07/net/ddns-scripts feeds/packages/net/ddns-scripts
+# rm -rf ./feeds/luci/applications/luci-app-ddns
+# svn co https://github.com/openwrt/luci/branches/openwrt-19.07/applications/luci-app-ddns feeds/luci/applications/luci-app-ddns
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
