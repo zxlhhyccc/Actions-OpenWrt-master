@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: 4.14(latest)Build OpenWrt
+name: 5.4(latest)Build OpenWrt
 
 on:
   release:
@@ -15,17 +15,17 @@ on:
     branches:
       - master
     paths:
-      - 'k3-4.14-5.4.config'
+      - 'k3-5.4-latest.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: started
+  watch:
+    types: started
 
 env:
   REPO_URL: https://github.com/project-openwrt/openwrt-latest.git
   REPO_BRANCH: master
-  CONFIG_FILE: k3-4.14-5.4.config
-  DIY_SH: diy4.14-latest.sh
+  CONFIG_FILE: k3-5.4-latest.config
+  DIY_SH: diy5.4-latest.sh
   SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -101,7 +101,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: OpenWrt_directory
+        name: OpenWrt_bin
         path: openwrt/bin
 
     - name: Organize files
