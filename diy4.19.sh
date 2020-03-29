@@ -39,6 +39,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
+# 添加openssl1.1.1e的200补丁
+rm -rf ./package/libs/openssl
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
 # 替换network中为19.07的iputils源码包解决iputils-traceroute6
 rm -rf ./feeds/packages/net/iputils
 # 替换system中为19.07的rpcd源码包解决所用19.07的network源码包编译依赖问题

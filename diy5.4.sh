@@ -35,9 +35,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 替换network中为19.07的odhcpd源码包解决dns解析导致无法获取dns不能上网问题
-rm -rf ./package/network/services/odhcpd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/19.07/network/services/odhcpd package/network/services/odhcpd
+# 添加openssl1.1.1e的200补丁
+rm -rf ./package/libs/openssl
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
 # 修改fullconenat加速模块Makefile适配5.4内核
 rm -rf ./package/openwrt-package/lean/openwrt-fullconenat
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
