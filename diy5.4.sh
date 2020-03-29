@@ -71,8 +71,8 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 rm -f ./feeds/packages/net/adblock/Makefile
 wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/project-openwrt/packages-latest/master/net/adblock/Makefile
 # 替换oaf适配5.4内核
-rm -rf ./package/openwrt-package/zxlhhyccc/OpenAppFilter
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/OpenAppFilter package/openwrt-package/zxlhhyccc/OpenAppFilter
+rm -rf ./package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
+svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/ctcgfw/oaf package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
