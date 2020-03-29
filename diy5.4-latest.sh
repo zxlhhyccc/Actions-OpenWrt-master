@@ -31,6 +31,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 # 升级feeds中的exfat-nofuse源码
  rm -rf ./feeds/packages/kernel/exfat-nofuse
  svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+# 添加pfring依赖包
+svn co  https://github.com/openwrt/packages/branches/openwrt-19.07/kernel/pfring feeds/packages/kernel/pfring
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
