@@ -37,7 +37,7 @@ rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 # 修改fullconenat加速模块Makefile适配5.4内核
 rm -rf ./package/openwrt-package/lean/openwrt-fullconenat
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
+svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
 # 添加5.4内核ACC补丁
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 rm -f ./target/linux/generic/config-5.4
