@@ -71,7 +71,7 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 # svn co https://github.com/openwrt/packages/branches/openwrt-19.07/kernel/pfring feeds/packages/kernel/pfring
 # 替换oaf适配5.4内核
 rm -rf ./package/openwrt-package/zxlhhyccc/OpenAppFilter
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/tree/master/master/package/OpenAppFilter package/openwrt-package/zxlhhyccc/OpenAppFilter
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/OpenAppFilter package/openwrt-package/zxlhhyccc/OpenAppFilter
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
