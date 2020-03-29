@@ -25,9 +25,9 @@ rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
-# 添加feeds中的hplip依赖libcups改为cups
-rm -rf ./feeds/packages/utils/hplip/Makefile
-wget -P ./feeds/packages/utils/hplip/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/utils/hplip/Makefile
+# 去除cups中的libcups
+rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
+wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
 # 开启wifi
 rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
 wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -38,9 +38,6 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 添加openssl1.1.1e的200补丁
-rm -rf ./package/libs/openssl
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
 # 修改mwan3配置文件的默认检测IP解决间断性断网问题
 # rm -rf ./feeds/packages/net/mwan3
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/mwan3 feeds/packages/net/mwan3
@@ -83,8 +80,9 @@ svn co https://github.com/project-openwrt/packages-latest/trunk/net/transmission
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
-# 添加pfring依赖包
-svn co  https://github.com/openwrt/packages/branches/openwrt-19.07/kernel/pfring feeds/packages/kernel/pfring
+# 修改adblock: dependences依赖去除依赖冲突
+rm -f ./feeds/packages/net/adblock/Makefile
+wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/project-openwrt/packages-latest/master/net/adblock/Makefile
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
@@ -93,4 +91,3 @@ rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
 rm -rf ./package/openwrt-package/lean/luci-app-ksmbd
-rm -rf ./feeds/packages/libs/libcups

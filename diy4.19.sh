@@ -28,10 +28,6 @@ wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhycc
 # 开启wifi
 rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
 wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
-# 替换为19.07的network包解决master不能解析dns问题
-rm -rf ./package/network
-svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/network package/network
-rm -rf ./package/network/.svn
 # 还原master的network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
@@ -39,14 +35,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 添加openssl1.1.1e的200补丁
-rm -rf ./package/libs/openssl
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/libs/openssl package/libs/openssl
-# 替换network中为19.07的iputils源码包解决iputils-traceroute6
-rm -rf ./feeds/packages/net/iputils
-# 替换system中为19.07的rpcd源码包解决所用19.07的network源码包编译依赖问题
-rm -rf ./package/system/rpcd
-svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/system/rpcd package/system/rpcd
+# 修改adblock: dependences依赖去除依赖冲突
+rm -f ./feeds/packages/net/adblock/Makefile
+wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/project-openwrt/packages-latest/master/net/adblock/Makefile
 # 添加4.19内核补丁
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
@@ -73,11 +64,12 @@ rm -f ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-ap
 wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
-# 添加pfring依赖包
-svn co  https://github.com/openwrt/packages/branches/openwrt-19.07/kernel/pfring feeds/packages/kernel/pfring
 # 升级feeds中的exfat-nofuse源码
-#rm -rf ./feeds/packages/kernel/exfat-nofuse
-#svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+rm -rf ./feeds/packages/kernel/exfat-nofuse
+svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+# 去除cups中的libcups
+rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
+wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
@@ -85,4 +77,4 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./feeds/luci/applications/luci-app-ksmbd
+rm -rf ./package/openwrt-package/lean/luci-app-ksmbd
