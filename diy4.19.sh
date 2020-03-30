@@ -68,8 +68,8 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 去除cups中的libcups
-rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
-wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
+# rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
+# wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
