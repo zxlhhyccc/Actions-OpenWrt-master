@@ -38,6 +38,9 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/ser
 # 修改adblock: dependences依赖去除依赖冲突
 rm -f ./feeds/packages/net/adblock/Makefile
 wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/project-openwrt/packages-latest/master/net/adblock/Makefile
+# 修改mwan3检测IP
+rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
+wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
 # 添加4.19内核补丁
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch

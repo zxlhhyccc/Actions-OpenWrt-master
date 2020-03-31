@@ -38,9 +38,9 @@ rm -rf ./package/network/utils/iptables
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 修改mwan3配置文件的默认检测IP解决间断性断网问题
-# rm -rf ./feeds/packages/net/mwan3
-# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/mwan3 feeds/packages/net/mwan3
+# 修改mwan3配置文件的默认检测IP
+rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
+wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
 # 添加4.14内核补丁
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.14/601-add-kernel-imq-support.patch
 wget -P target/linux/generic/pending-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.14/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
