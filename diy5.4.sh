@@ -76,6 +76,9 @@ svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/ctcgfw/oa
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+# 修改mwan3检测IP
+rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
+wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
 # 修复transmission
 rm -rf ./feeds/packages/net/transmission
 svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission feeds/packages/net/transmission
