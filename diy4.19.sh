@@ -46,8 +46,8 @@ wget -P target/linux/generic/hack-4.19/ https://raw.githubusercontent.com/zxlhhy
 rm -f ./target/linux/generic/config-4.19
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-4.19
 # 添加bcm53xx默认内核为4.19
-rm -f ./target/linux/bcm53xx/Makefile
-wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
+# rm -f ./target/linux/bcm53xx/Makefile
+# wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
 # 添加x86默认编译包及内核为4.19
 rm -f ./target/linux/x86/Makefile
 wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-x86/Makefile
@@ -67,9 +67,13 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
-# 去除cups中的libcups
-# rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
-# wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
+# 修复transmission
+rm -rf ./feeds/packages/net/transmission
+svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission feeds/packages/net/transmission
+rm -rf ./feeds/packages/net/transmission-web-control
+svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
+rm -rf ./feeds/luci/applications/luci-app-transmission
+svn co  https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
@@ -78,3 +82,5 @@ rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
 rm -rf ./package/openwrt-package/lean/luci-app-ksmbd
+rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
+rm -rf ./package/openwrt-package/lean/nft-qos

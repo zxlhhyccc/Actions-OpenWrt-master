@@ -83,6 +83,13 @@ svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/ker
 # 修改adblock: dependences依赖去除依赖冲突
 rm -f ./feeds/packages/net/adblock/Makefile
 wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/project-openwrt/packages-latest/master/net/adblock/Makefile
+# 修复transmission
+rm -rf ./feeds/packages/net/transmission
+svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission feeds/packages/net/transmission
+rm -rf ./feeds/packages/net/transmission-web-control
+svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
+rm -rf ./feeds/luci/applications/luci-app-transmission
+svn co  https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun

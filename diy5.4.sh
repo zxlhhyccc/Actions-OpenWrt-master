@@ -76,9 +76,13 @@ svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/ctcgfw/oa
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
-# 去除cups中的libcups
-rm -f ./packages/openwrt-package/ctcgfw/cups/Makefile
-wget -P ./packages/openwrt-package/ctcgfw/cups/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/ctcgfw/cups/Makefile
+# 修复transmission
+rm -rf ./feeds/packages/net/transmission
+svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission feeds/packages/net/transmission
+rm -rf ./feeds/packages/net/transmission-web-control
+svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
+rm -rf ./feeds/luci/applications/luci-app-transmission
+svn co  https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
@@ -87,3 +91,5 @@ rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
 rm -rf ./package/openwrt-package/lean/luci-app-ksmbd
+rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
+rm -rf ./package/openwrt-package/lean/nft-qos
