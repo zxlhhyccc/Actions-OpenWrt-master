@@ -50,6 +50,7 @@ wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhy
 wget -P target/linux/generic/hack-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-4.14/953-use-nf_ct_helper_log.patch
 rm -f ./target/linux/generic/config-4.14
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-4.14
+wget -P ./target/linux/x86/patches-4.14/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/x86/patches-4.14/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
 # 添加bcm53xx默认内核为4.14
 rm -f ./target/linux/bcm53xx/Makefile
 wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.14-5.4-bcm53xx/Makefile
@@ -73,10 +74,6 @@ svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv fe
 # 修改替换feeds里的luci-app-firewall加速开关等源码包
 # rm -rf ./feeds/luci/applications/luci-app-firewall
 # svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
-rm -rf ./feeds/luci/applications/luci-app-transmission
-svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-transmission
-rm -rf ./feeds/packages/net/transmission-web-control
-svn co https://github.com/project-openwrt/packages-latest/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse

@@ -45,6 +45,7 @@ wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxl
 wget -P target/linux/generic/hack-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-4.19/952-net-conntrack-events-support-multiple-registrant.patch
 rm -f ./target/linux/generic/config-4.19
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-4.19
+wget -P ./target/linux/x86/patches-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/x86/patches-4.19/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
 # 添加bcm53xx默认内核为4.19
 # rm -f ./target/linux/bcm53xx/Makefile
 # wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
