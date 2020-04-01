@@ -67,9 +67,6 @@ rm -f ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-ap
 wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
-# 修改adblock: dependences依赖去除依赖冲突
-rm -f ./feeds/packages/net/adblock/Makefile
-wget -P ./feeds/packages/net/adblock/ https://raw.githubusercontent.com/project-openwrt/packages-latest/master/net/adblock/Makefile
 # 替换oaf适配5.4内核
 rm -rf ./package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
 svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/ctcgfw/oaf package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
