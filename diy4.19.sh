@@ -37,6 +37,11 @@ rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 rm -rf ./package/network/config/netifd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/netifd package/network/config/netifd
+rm -rf ./package/network/services/dnsmasq
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/dnsmasq package/network/services/dnsmasq
+rm -f package/base-files/files/etc/init.d/boot
+wget -P ./package/base-files/files/etc/init.d/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/etc/init.d/boot
+chmod 755 ./package/base-files/files/etc/init.d/boot
 # 修改mwan3检测IP
 rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
 wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
