@@ -20,9 +20,9 @@ rm -f ./package/base-files/files/etc/shadow
 wget -P ./package/base-files/files/etc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/etc/shadow
 # kernel支持及修改连接数
 rm -f ./package/kernel/linux/modules/netdevices.mk
-wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/kernel/linux/modules/netdevices.mk
+wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netdevices.mk
 rm -f ./package/kernel/linux/modules/netfilter.mk
-wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/kernel/linux/modules/netfilter.mk
+wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 开启wifi
@@ -30,9 +30,9 @@ rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
 wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # 修改network中防火墙等源码包
 rm -rf ./package/network/config/firewall
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
+svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/network/config/firewall package/network/config/firewall
 rm -rf ./package/network/utils/iptables
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
+svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 # 修改fullconenat加速模块Makefile适配5.4内核
@@ -40,8 +40,9 @@ rm -rf ./package/openwrt-package/lean/openwrt-fullconenat
 svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
 # 添加5.4内核ACC补丁
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
+wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
 rm -f ./target/linux/generic/config-5.4
-wget -P ./target/linux/generic/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/config-5.4
+wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.4
 # 添加bcm53xx默认内核为5.4（在4.14情况下.config确定）
 # rm -f ./target/linux/bcm53xx/Makefile
 # wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.14-5.4-bcm53xx/Makefile
@@ -90,6 +91,7 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./package/openwrt-package/lean/luci-app-ksmbd
+rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
+rm -rf ./package/openwrt-package/lean/autocore-18.06

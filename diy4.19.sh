@@ -52,6 +52,7 @@ wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxl
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/607-tcp_bbr-adapt-cwnd-based-on-ack-aggregation-estimation.patch
 wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-4.19/608-add-kernel-gargoyle-netfilter-match-modules.patch
 wget -P target/linux/generic/hack-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-4.19/952-net-conntrack-events-support-multiple-registrant.patch
+wget -P target/linux/generic/pending-4.19/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/pending-4.19/760-net-usb-aqc111-Driver-skeleton-for-Aquantia-AQtionUSB-to-5GbE.patch
 rm -f ./target/linux/generic/config-4.19
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-4.19
 wget -P ./target/linux/x86/patches-4.19/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/x86/patches-4.19/900-x86-Enable-fast-strings-on-Intel-if-BIOS-hasn-t-already.patch
