@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - 'rly-4.19-5.4-.config'
+      - 'rly-4.19-5.4.config'
 #  schedule:
 #    - cron: 0 8 * * 5
 #  watch:
@@ -24,7 +24,7 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  CONFIG_FILE: rly-4.19-5.4-.config
+  CONFIG_FILE: rly-4.19-5.4.config
   DIY_SH: diy4.19.sh
   SSH_ACTIONS: true
   UPLOAD_BIN_DIR: false
