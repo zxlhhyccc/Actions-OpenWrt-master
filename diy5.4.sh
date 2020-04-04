@@ -38,6 +38,9 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/ser
 # 修改fullconenat加速模块Makefile适配5.4内核
 rm -rf ./package/openwrt-package/lean/openwrt-fullconenat
 svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
+# 修改替换feeds里的luci-app-firewall加速开关等源码包
+rm -rf ./feeds/luci/applications/luci-app-firewall
+svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
 # 添加5.4内核ACC补丁
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
@@ -77,13 +80,18 @@ svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/ker
 # 修改mwan3检测IP
 rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
 wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
-# 修复transmission
+# 修改transmission依赖
 rm -rf ./feeds/packages/net/transmission
 svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission feeds/packages/net/transmission
 rm -rf ./feeds/packages/net/transmission-web-control
 svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
 rm -rf ./feeds/luci/applications/luci-app-transmission
 svn co  https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
+# 修改freeswitch-stable和kamailio-5.x依赖为python3
+rm -f ./feeds/telephony/net/freeswitch-stable/Makefile
+rm -f ./feeds/telephony/net/kamailio-5.x/Makefile
+wget -P ./feeds/telephony/net/freeswitch-stable/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/telephony/net/freeswitch-stable/Makefile
+wget -P ./feeds/telephony/net/kamailio-5.x/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/telephony/net/kamailio-5.x/Makefile
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
