@@ -88,9 +88,7 @@ svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmissio
 rm -rf ./feeds/luci/applications/luci-app-transmission
 svn co  https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 # 修改freeswitch-stable和kamailio-5.x依赖为python3
-rm -f ./feeds/telephony/net/freeswitch-stable/Makefile
 rm -f ./feeds/telephony/net/kamailio-5.x/Makefile
-wget -P ./feeds/telephony/net/freeswitch-stable/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/telephony/net/freeswitch-stable/Makefile
 wget -P ./feeds/telephony/net/kamailio-5.x/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/telephony/net/kamailio-5.x/Makefile
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
