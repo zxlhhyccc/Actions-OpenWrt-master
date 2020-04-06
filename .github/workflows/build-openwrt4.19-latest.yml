@@ -22,11 +22,11 @@ on:
 #    types: started
 
 env:
-  REPO_URL: https://github.com/project-openwrt/openwrt-latest.git
+  REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: master
   CONFIG_FILE: k3-4.19-5.4.config
   DIY_SH: diy4.19-latest.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -58,11 +58,6 @@ jobs:
     - name: 自定义插件
       run: |
         cd openwrt
-        rm -rf ./package/ctcgfw
-        rm -rf ./package/lean
-        rm -rf ./package/lienol
-        rm -rf ./package/ntlf9t
-        rm -rf ./package/zxlhhyccc
         git clone  https://github.com/zxlhhyccc/bf-package.git package/openwrt-package
        
     - name: Update feeds
@@ -111,7 +106,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
-        name: OpenWrt_directory
+        name: OpenWrt_bin
         path: openwrt/bin
 
     - name: Organize files
