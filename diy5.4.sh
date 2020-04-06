@@ -72,8 +72,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 # 替换oaf适配5.4内核
-rm -rf ./package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
-svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/ctcgfw/oaf package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
+# rm -rf ./package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
+# svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/ctcgfw/oaf package/openwrt-package/zxlhhyccc/OpenAppFilter/oaf
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
