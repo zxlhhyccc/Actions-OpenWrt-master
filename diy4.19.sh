@@ -100,3 +100,6 @@ rm -rf ./package/openwrt-package/lean/nft-qos
 # pushd package/openwrt-package/lean
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
+# 替换19.07的mac80211驱动
+rm -rf ./package/kernel/mac80211
+svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/kernel/mac80211 package/kernel/mac80211
