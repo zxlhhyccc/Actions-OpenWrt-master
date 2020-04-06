@@ -26,8 +26,8 @@ wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhy
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 开启wifi
-rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
-wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # 还原master的network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
@@ -102,4 +102,6 @@ rm -rf ./package/openwrt-package/lean/nft-qos
 # popd
 # 替换19.07的mac80211驱动
 rm -rf ./package/kernel/mac80211
-svn co https://github.com/openwrt/openwrt/branches/openwrt-19.07/package/kernel/mac80211 package/kernel/mac80211
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/kernel/mac80211 package/kernel/mac80211
+rm -rf ./package/network/services/hostapd
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/hostapd package/network/services/hostapd
