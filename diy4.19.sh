@@ -101,7 +101,7 @@ rm -rf ./package/openwrt-package/lean/nft-qos
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
 # 替换19.07的mac80211驱动
-rm -rf ./package/kernel/mac80211
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/kernel/mac80211 package/kernel/mac80211
-rm -rf ./package/network/services/hostapd
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/hostapd package/network/services/hostapd
+# rm -rf ./package/kernel/mac80211
+# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/kernel/mac80211 package/kernel/mac80211
+# rm -rf ./package/network/services/hostapd
+# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/hostapd package/network/services/hostapd
