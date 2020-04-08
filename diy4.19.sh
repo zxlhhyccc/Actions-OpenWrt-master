@@ -37,7 +37,7 @@ rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 # 修改替换feeds里的luci-app-firewall加速开关等源码包
 rm -rf ./feeds/luci/applications/luci-app-firewall
-svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
+svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
 # 修改mwan3检测IP
 rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
 wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
