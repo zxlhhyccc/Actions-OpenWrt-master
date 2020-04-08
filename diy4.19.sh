@@ -13,11 +13,11 @@ wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/maste
 rm -f ./include/netfilter.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/netfilter.mk
 # 替换文件应用新IP为192.168.50.1及默认中文及设置登录密码为admin
-rm -f ./package/base-files/files/bin/config_generate
-wget -P ./package/base-files/files/bin/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/bin/config_generate
-chmod 755 ./package/base-files/files/bin/config_generate
-rm -f ./package/base-files/files/etc/shadow
-wget -P ./package/base-files/files/etc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/etc/shadow
+# rm -f ./package/base-files/files/bin/config_generate
+# wget -P ./package/base-files/files/bin/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/bin/config_generate
+# chmod 755 ./package/base-files/files/bin/config_generate
+# rm -f ./package/base-files/files/etc/shadow
+# wget -P ./package/base-files/files/etc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/etc/shadow
 # kernel支持及修改连接数
 rm -f ./package/kernel/linux/modules/netdevices.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netdevices.mk
