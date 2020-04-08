@@ -70,17 +70,17 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
 # 修改替换feeds里的luci-app-firewall加速开关等源码包
 rm -rf ./feeds/luci/applications/luci-app-firewall
-svn co https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
+svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 修复transmission
 rm -rf ./feeds/packages/net/transmission
-svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission feeds/packages/net/transmission
+svn co  https://github.com/project-openwrt/packages/trunk/net/transmission feeds/packages/net/transmission
 rm -rf ./feeds/packages/net/transmission-web-control
-svn co  https://github.com/project-openwrt/packages-latest/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
+svn co  https://github.com/project-openwrt/packages/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
 rm -rf ./feeds/luci/applications/luci-app-transmission
-svn co  https://github.com/project-openwrt/luci-latest/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
+svn co  https://github.com/project-openwrt/luci/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 # 修改kamailio-5.x依赖为python3
 rm -f ./feeds/telephony/net/kamailio-5.x/Makefile
 wget -P ./feeds/telephony/net/kamailio-5.x/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/telephony/net/kamailio-5.x/Makefile
