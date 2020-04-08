@@ -6,18 +6,12 @@
 # Blog: https://p3terx.com
 #=================================================
 # Modify default IP
-# sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
 rm -f ./include/netfilter.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/netfilter.mk
-# 替换文件应用新IP为192.168.50.1及默认中文及设置登录密码为admin
-rm -f ./package/base-files/files/bin/config_generate
-wget -P ./package/base-files/files/bin/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/bin/config_generate
-chmod 755 ./package/base-files/files/bin/config_generate
-rm -f ./package/base-files/files/etc/shadow
-wget -P ./package/base-files/files/etc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/etc/shadow
 # kernel支持及修改连接数
 rm -f ./package/kernel/linux/modules/netdevices.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netdevices.mk
@@ -25,9 +19,6 @@ rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
-# 开启wifi
-rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
-wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # 修改network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/config/firewall package/network/config/firewall
@@ -87,6 +78,8 @@ wget -P ./feeds/telephony/net/kamailio-5.x/ https://raw.githubusercontent.com/zx
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
+# 删除sqm仍未进行汉化的po文件
+rm -rf ./feeds/luci/applications/luci-app-sqm/po/zh_Hans
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
@@ -94,4 +87,11 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./package/openwrt-package/lean/luci-app-ksmbd
+# rm -rf ./package/openwrt-package/lean/luci-app-ksmbd
+rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
+rm -rf ./package/openwrt-package/lean/nft-qos
+# 替换acc
+# rm -rf ./package/openwrt-package/lean/luci-app-flowoffload-master
+# pushd package/openwrt-package/lean
+# unzip luci-app-flowoffload-master-NAT.zip
+# popd

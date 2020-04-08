@@ -6,18 +6,12 @@
 # Blog: https://p3terx.com
 #=================================================
 # Modify default IP
-# sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
 rm -f ./include/netfilter.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/netfilter.mk
-# 替换文件应用新IP为192.168.50.1及默认中文及设置登录密码为admin
-rm -f ./package/base-files/files/bin/config_generate
-wget -P ./package/base-files/files/bin/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/bin/config_generate
-chmod 755 ./package/base-files/files/bin/config_generate
-rm -f ./package/base-files/files/etc/shadow
-wget -P ./package/base-files/files/etc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/files/etc/shadow
 # kernel支持及修改连接数
 rm -f ./package/kernel/linux/modules/netdevices.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netdevices.mk
@@ -25,9 +19,6 @@ rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
-# 开启wifi
-rm -f ./package/kernel/mac80211/files/lib/wifi/mac80211.sh
-wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # 修改network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/network/config/firewall package/network/config/firewall
@@ -77,6 +68,7 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
 # 修改mwan3检测IP
 rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
 wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
@@ -106,3 +98,8 @@ rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
 rm -rf ./package/openwrt-package/lean/autocore-18.06
+# 替换acc
+# rm -rf ./package/openwrt-package/lean/luci-app-flowoffload-master
+# pushd package/openwrt-package/lean
+# unzip luci-app-flowoffload-master-NAT.zip
+# popd
