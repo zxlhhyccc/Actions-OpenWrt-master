@@ -28,7 +28,7 @@ rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 # 修改fullconenat加速模块Makefile适配5.4内核
 rm -rf ./package/openwrt-package/lean/openwrt-fullconenat
-svn co https://github.com/project-openwrt/openwrt-latest/trunk/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
+svn co https://github.com/project-openwrt/openwrt/branches/master/package/lean/openwrt-fullconenat package/openwrt-package/lean/openwrt-fullconenat
 # 修改替换feeds里的luci-app-firewall加速开关等源码包
 rm -rf ./feeds/luci/applications/luci-app-firewall
 svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
