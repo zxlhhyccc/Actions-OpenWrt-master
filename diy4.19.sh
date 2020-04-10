@@ -60,7 +60,7 @@ rm -f ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-ap
 wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
-svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
+svn co https://github.com/project-openwrt/packages/trunk/libs/opencv feeds/packages/libs/opencv
 # 升级feeds中的exfat-nofuse源码
 rm -rf ./feeds/packages/kernel/exfat-nofuse
 svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
