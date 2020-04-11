@@ -58,7 +58,7 @@ jobs:
     - name: 自定义插件
       run: |
         cd openwrt
-        rm -rf ./package/ctcgew
+        rm -rf ./package/ctcgfw
         rm -rf ./package/lean
         rm -rf ./package/lienol
         rm -rf ./package/ntlf9t
