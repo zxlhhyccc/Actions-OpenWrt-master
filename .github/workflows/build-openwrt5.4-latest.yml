@@ -18,11 +18,11 @@ on:
       - 'k3-5.4-latest.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: started
+  watch:
+    types: started
 
 env:
-  REPO_URL: https://github.com/project-openwrt/openwrt-latest.git
+  REPO_URL: https://github.com/project-openwrt/openwrt.git
   REPO_BRANCH: master
   CONFIG_FILE: k3-5.4-latest.config
   DIY_SH: diy5.4-latest.sh
@@ -54,7 +54,17 @@ jobs:
 
     - name: Clone source code
       run: git clone $REPO_URL -b $REPO_BRANCH openwrt
-       
+
+    - name: 自定义插件
+      run: |
+        cd openwrt
+        rm -rf ./package/ctcgew
+        rm -rf ./package/lean
+        rm -rf ./package/lienol
+        rm -rf ./package/ntlf9t
+        rm -rf ./package/zxlhhyccc
+        git clone  https://github.com/zxlhhyccc/bf-package.git package/openwrt-package 
+      
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -93,7 +103,6 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3|' target/linux/bcm53xx/image/Makefile
         make -j$(nproc) || make -j1 V=s 2>&1 ; echo -e '\a'
         echo "::set-output name=status::success"
 
