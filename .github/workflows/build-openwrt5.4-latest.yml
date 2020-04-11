@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: 5.4(latest)Build OpenWrt
+name: rly-5.4(latest)Build OpenWrt
 
 on:
   release:
@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - 'k3-5.4-latest.config'
+      - 'rly-5.4-latest.config'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
@@ -24,9 +24,9 @@ on:
 env:
   REPO_URL: https://github.com/project-openwrt/openwrt.git
   REPO_BRANCH: master
-  CONFIG_FILE: k3-5.4-latest.config
+  CONFIG_FILE: rly-5.4-latest.config
   DIY_SH: diy5.4-latest.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
