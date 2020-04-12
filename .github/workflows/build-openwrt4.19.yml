@@ -58,8 +58,7 @@ jobs:
     - name: feeds.conf.default
       run: |
         cd openwrt
-        rm -f feeds.conf.default
-        wget https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds.conf.default
+        sed -i 's/luci.git/luci.git^1e07e3a52d4d06cc82ab07f2b7fbba0a9a6fb801/g' feeds.conf.default
      
     - name: 自定义插件
       run: |
