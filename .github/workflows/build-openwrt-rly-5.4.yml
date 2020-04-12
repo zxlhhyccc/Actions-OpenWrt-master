@@ -54,13 +54,17 @@ jobs:
 
     - name: Clone source code
       run: git clone $REPO_URL -b $REPO_BRANCH openwrt
+
+    - name: feeds.conf.default
+      run: |
+        cd openwrt
+        rm -f feeds.conf.default
+        wget https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds.conf.default
      
     - name: 自定义插件
       run: |
         cd openwrt
         git clone  https://github.com/zxlhhyccc/bf-package.git package/openwrt-package
-        rm -f feeds.conf.default
-        wget -p https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds.conf.default
        
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
