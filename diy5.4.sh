@@ -82,8 +82,9 @@ svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/luci/applica
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
-# 删除sqm仍未进行汉化的po文件
+# 添加sqm仍未进行汉化的po文件
 rm -rf ./feeds/luci/applications/luci-app-sqm/po/zh_Hans
+svn co https://github.com/openwrt/luci/trunk/applications/luci-app-sqm/po/zh_Hans feeds/luci/applications/luci-app-sqm/po/zh_Hans
 # 修复新版luci的cpu等寄存器显示
 # rm -f feeds/luci/modules/luci-mod-network/root/usr/share/rpcd/acl.d/luci-mod-network.json
 # wget -P ./feeds/luci/modules/luci-mod-network/root/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/project-openwrt/luci/master/modules/luci-mod-network/root/usr/share/rpcd/acl.d/luci-mod-network.json
