@@ -59,6 +59,8 @@ jobs:
       run: |
         cd openwrt
         git clone  https://github.com/zxlhhyccc/bf-package.git package/openwrt-package
+        rm -f feeds.conf.default
+        wget -p https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds.conf.default
        
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
