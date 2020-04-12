@@ -62,8 +62,8 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 svn co https://github.com/project-openwrt/packages/trunk/libs/opencv feeds/packages/libs/opencv
 # 升级feeds中的exfat-nofuse源码
-rm -rf ./feeds/packages/kernel/exfat-nofuse
-svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
+# rm -rf ./feeds/packages/kernel/exfat-nofuse
+# svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/kernel/exfat-nofuse feeds/packages/kernel/exfat-nofuse
 # 修复transmission
 rm -rf ./feeds/packages/net/transmission
 svn co  https://github.com/project-openwrt/packages/trunk/net/transmission feeds/packages/net/transmission
