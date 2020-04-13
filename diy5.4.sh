@@ -102,7 +102,6 @@ rm -rf ./feeds/luci/applications/luci-app-frps
 rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
-rm -rf ./package/openwrt-package/lean/autocore-18.06
 # 替换acc
 # rm -rf ./package/openwrt-package/lean/luci-app-flowoffload-master
 # pushd package/openwrt-package/lean
