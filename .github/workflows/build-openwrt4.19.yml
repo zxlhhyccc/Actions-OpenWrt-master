@@ -54,16 +54,11 @@ jobs:
 
     - name: Clone source code
       run: git clone $REPO_URL -b $REPO_BRANCH openwrt
-
-    - name: feeds.conf.default
-      run: |
-        cd openwrt
-        sed -i 's/luci.git/luci.git^1e07e3a52d4d06cc82ab07f2b7fbba0a9a6fb801/g' feeds.conf.default
      
     - name: 自定义插件
       run: |
         cd openwrt
-        git clone  https://github.com/zxlhhyccc/bf-package.git package/openwrt-package
+        git clone  https://github.com/zxlhhyccc/bf-package-master.git package/op-package
        
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
