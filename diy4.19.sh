@@ -7,6 +7,7 @@
 #=================================================
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/tmp/resolv.conf/etc/resolv.conf/g' package/base-files/files/etc/init/boot
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
