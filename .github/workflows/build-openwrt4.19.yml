@@ -27,7 +27,7 @@ env:
   CONFIG_FILE: test.config
   DIY_SH: diy4.19.sh
   SSH_ACTIONS: false
-  UPLOAD_BIN_DIR: false
+  UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
 
