@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - 'k3-4.19-5.4.config'
+      - 'test.config'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
@@ -24,9 +24,9 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: master
-  CONFIG_FILE: k3-4.19-5.4.config
+  CONFIG_FILE: teset.config
   DIY_SH: diy4.19.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
