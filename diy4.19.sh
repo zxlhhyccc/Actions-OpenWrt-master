@@ -9,8 +9,8 @@
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 # sed -i '36s/tmp/etc/2' package/base-files/files/etc/init.d/boot
 # 添加默认编译包
-rm -f ./include/target.mk
-wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
+# rm -f ./include/target.mk
+# wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
 rm -f ./include/netfilter.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/netfilter.mk
 # kernel支持及修改连接数
