@@ -8,7 +8,10 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 # luci-compat: 在不足的ACL上启用旧式CBI表单
-sed -i 's/disabled/Enable/g' feeds/luci/modules/luci-compat/luasrc/view/cbi/footer.htm
+# sed -i 's/disabled/Enable/g' feeds/luci/modules/luci-compat/luasrc/view/cbi/footer.htm
+# 替换map.htm适配启用旧式CBI
+rm -f ./feeds/luci/modules/luci-compat/luasrc/view/cbi/map.htm
+wget -P ./feeds/luci/modules/luci-compat/luasrc/view/cbi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-compat/luasrc/view/cbi/map.htm
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
@@ -61,6 +64,7 @@ wget -P ./feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/ http
 # 添加feeds里的依赖包
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/lang/python/Flask-RESTful feeds/packages/lang/python/Flask-RESTful
 svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/opencv feeds/packages/libs/opencv
+svn co https://github.com/project-openwrt/packages/trunk/libs/fcgi feeds/packages/libs/fcgi
 # 修改替换feeds里的luci-app-firewall加速开关等源码包
 rm -rf ./feeds/luci/applications/luci-app-firewall
 svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
