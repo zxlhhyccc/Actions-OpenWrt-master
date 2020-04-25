@@ -51,6 +51,9 @@ wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-
 # 添加bcm53xx默认内核为5.4（在4.19情况下.config确定）
 rm -f ./target/linux/bcm53xx/Makefile
 wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
+# 打开bcm53xx的NAND解决5.4内核启动问题
+rm -f ./target/linux/bcm53xx/config-5.4
+wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/config-5.4
 # 添加x86默认编译包及内核为5.4（在4.19情况下.config确定)
 rm -f ./target/linux/x86/Makefile
 wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-x86/Makefile
