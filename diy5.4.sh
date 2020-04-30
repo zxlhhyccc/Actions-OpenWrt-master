@@ -52,8 +52,8 @@ wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-
 rm -f ./target/linux/bcm53xx/Makefile
 wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/Makefile
 # 打开bcm53xx的NAND解决5.4内核启动问题
-rm -f ./target/linux/bcm53xx/config-5.4
-wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/config-5.4
+# rm -f ./target/linux/bcm53xx/config-5.4
+# wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-bcm53xx/config-5.4
 # 添加x86默认编译包及内核为5.4（在4.19情况下.config确定)
 rm -f ./target/linux/x86/Makefile
 wget -P ./target/linux/x86/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.19-5.4-x86/Makefile
@@ -108,7 +108,7 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
-rm -rf ./feeds/luci/applications/luci-app-ksmbd
+# rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
 # 替换acc
