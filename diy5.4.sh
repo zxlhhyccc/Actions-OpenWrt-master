@@ -88,7 +88,7 @@ rm -rf ./feeds/packages/net/transmission-web-control
 svn co  https://github.com/project-openwrt/packages/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
 rm -rf ./feeds/luci/applications/luci-app-transmission
 svn co  https://github.com/project-openwrt/luci/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
-wget -P ./feeds/packages/net/transmission/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission/patches/007-transmission-init.patch
+# wget -P ./feeds/packages/net/transmission/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission/patches/007-transmission-init.patch
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
@@ -104,9 +104,15 @@ rm -f ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-sy
 wget -P ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/project-openwrt/luci/master/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-system.json
 # 添加netdata显示中文日期补丁
 sed -i 's/1.20.0/1.21.1/g' feeds/packages/admin/netdata/Makefile
-sed -i 's/c739e0fa8d6d7f433c0c7c8016b763e8f70519d67f0b5e7eca9ee5318f210d90/60cdde3f1f8bd9035fef6a566053c0a7195d1714b5da6814473263e85382b4a8/g' feeds/packages/admin/netdata/Makefile
-wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
-wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+sed -i 's/c739e0fa8d6d7f433c0c7c8016b763e8f70519d67f0b5e7eca9ee5318f210d90/dfd2929b3050859a28ddf00d98216ff1fc44f5155b8343b0bc450cc26de3fa32/g' feeds/packages/admin/netdata/Makefile
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 002-netdata-with-dbengine.patch
+popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 003-netdata-init-with-TZ.patch
+popd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
