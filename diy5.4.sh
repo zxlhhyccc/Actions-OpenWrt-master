@@ -103,6 +103,8 @@ wget -P ./feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/ https://
 rm -f ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-system.json
 wget -P ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/project-openwrt/luci/master/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-system.json
 # 添加netdata显示中文日期补丁
+sed -i 's/1.20.0/1.21.1/g' feeds/packages/admin/netdata/Makefile
+sed -i 's/c739e0fa8d6d7f433c0c7c8016b763e8f70519d67f0b5e7eca9ee5318f210d90/60cdde3f1f8bd9035fef6a566053c0a7195d1714b5da6814473263e85382b4a8/g' feeds/packages/admin/netdata/Makefile
 wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
 wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
