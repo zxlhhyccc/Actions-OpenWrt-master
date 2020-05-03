@@ -103,7 +103,7 @@ wget -P ./feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/ https://
 rm -f ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-system.json
 wget -P ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/project-openwrt/luci/master/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-system.json
 # 添加netdata显示中文日期补丁
-wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/project-openwrt/openwrt-fastbuild-actions/master/user/default/patches/002-netdata-with-dbengine.patch
+wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
 wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 删除feeds里的与自有包冲突插件
