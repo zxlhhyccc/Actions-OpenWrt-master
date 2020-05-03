@@ -88,6 +88,7 @@ rm -rf ./feeds/packages/net/transmission-web-control
 svn co  https://github.com/project-openwrt/packages/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
 rm -rf ./feeds/luci/applications/luci-app-transmission
 svn co  https://github.com/project-openwrt/luci/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
+wget -P ./feeds/packages/net/transmission/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission/patches/007-transmission-init.patch
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
@@ -102,7 +103,9 @@ wget -P ./feeds/luci/modules/luci-mod-status/root/usr/share/rpcd/acl.d/ https://
 rm -f ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-system.json
 wget -P ./feeds/luci/modules/luci-mod-system/root/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/project-openwrt/luci/master/modules/luci-mod-system/root/usr/share/rpcd/acl.d/luci-mod-system.json
 # 添加netdata显示中文日期补丁
-wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/project-openwrt/openwrt-fastbuild-actions/master/user/default/patches/003-netdata-init-with-TZ.patch
+wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/project-openwrt/openwrt-fastbuild-actions/master/user/default/patches/002-netdata-with-dbengine.patch
+wget -P ./feeds/packages/admin/netdata/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
