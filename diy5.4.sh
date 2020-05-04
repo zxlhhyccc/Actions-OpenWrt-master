@@ -113,6 +113,10 @@ wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhy
 pushd feeds/packages/admin/netdata
 patch -p1 < 003-netdata-init-with-TZ.patch
 popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 004-netdata-with-config.patch
+popd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
