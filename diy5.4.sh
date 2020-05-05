@@ -35,8 +35,9 @@ svn co https://github.com/project-openwrt/openwrt/branches/master/package/networ
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 # 修改feeds里的luci-app-firewall加速开关等源码包
+wget -P ./feeds/luci/applications/luci-app-firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch
 pushd feeds/luci/applications/luci-app-firewall
-wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch | git apply
+patch -p1 < 001-luci-app-firewall-Enable-FullCone-NAT.patch
 popd
 # rm -rf ./feeds/luci/applications/luci-app-firewall
 # svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
@@ -87,11 +88,13 @@ svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/ker
 # rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
 # wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
 # 修改transmission依赖
+wget -P ./feeds/packages/net/transmission-web-control/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch
 pushd feeds/packages/net/transmission-web-control
-wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch | git apply
+patch -p1 < 001-transmission-web-control-dbengine.patch
 popd
+wget -P ./feeds/luci/applications/luci-app-transmission/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-transmission/patches/001-luci-app-transmission-with-dbengine.patch
 pushd feeds/luci/applications/luci-app-transmission
-wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-transmission/patches/001-luci-app-transmission-with-dbengine.patch | git apply
+patch -p1 < 001-luci-app-transmission-with-dbengine.patch
 popd
 # rm -rf ./feeds/packages/net/transmission
 # svn co  https://github.com/project-openwrt/packages/trunk/net/transmission feeds/packages/net/transmission
@@ -104,8 +107,9 @@ popd
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
 # 修复新版luci的cpu等寄存器显示
+wget -P ./feeds/luci/modules/luci-mod-status/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-mod-status/patches/001-luci-mod-status-fix-register-functions.patch
 pushd feeds/luci/modules/luci-mod-status
-wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-luci-mod-status-fix-register-functions.patch | git apply
+patch -p1 < 001-luci-mod-status-fix-register-functions.patch
 popd
 # rm -f ./feeds/luci/modules/luci-mod-network/root/usr/share/rpcd/acl.d/luci-mod-network.json
 # wget -P ./feeds/luci/modules/luci-mod-network/root/usr/share/rpcd/acl.d/ https://raw.githubusercontent.com/project-openwrt/luci/master/modules/luci-mod-network/root/usr/share/rpcd/acl.d/luci-mod-network.json
@@ -116,10 +120,17 @@ popd
 # 添加netdata显示中文日期补丁及升级到1.21.1
 sed -i 's/1.20.0/1.21.1/g' feeds/packages/admin/netdata/Makefile
 sed -i 's/c739e0fa8d6d7f433c0c7c8016b763e8f70519d67f0b5e7eca9ee5318f210d90/60cdde3f1f8bd9035fef6a566053c0a7195d1714b5da6814473263e85382b4a8/g' feeds/packages/admin/netdata/Makefile
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch
 pushd feeds/packages/admin/netdata
-wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/admin/netdata/patches/002-netdata-with-dbengine.patch | git apply
-wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch | git apply
-wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch | git apply
+patch -p1 < 002-netdata-with-dbengine.patch
+popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 003-netdata-init-with-TZ.patch
+popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 004-netdata-with-config.patch
 popd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 修复seafile-server的依赖
