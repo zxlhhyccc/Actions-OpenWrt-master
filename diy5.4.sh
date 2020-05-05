@@ -66,9 +66,10 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/ucl tools/ucl
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/tools/upx tools/upx
 rm -f ./tools/Makefile
 wget -P ./tools/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/tools/Makefile
-# 去除feeds中的material主题多余固件名
-rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
-wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
+# 去除feeds中的material主题多余openwrt名
+sed -i 's#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
+# rm -f ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
+# wget -P ./feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 将tty、ksmd所在服务目录改到系统、网络存储目录
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
@@ -102,9 +103,6 @@ popd
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/sqm-scripts feeds/packages/net/sqm-scripts
-# 添加sqm仍未进行汉化的po文件
-# rm -rf ./feeds/luci/applications/luci-app-sqm/po/zh_Hans
-# svn co https://github.com/openwrt/luci/trunk/applications/luci-app-sqm/po/zh_Hans feeds/luci/applications/luci-app-sqm/po/zh_Hans
 # 修复新版luci的cpu等寄存器显示
 pushd feeds/luci/modules/luci-mod-status
 wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/modules/luci-mod-status/patches/001-luci-mod-status-fix-register-functions.patch | git apply
