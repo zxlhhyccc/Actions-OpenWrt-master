@@ -118,6 +118,8 @@ pushd feeds/packages/admin/netdata
 patch -p1 < 004-netdata-with-config.patch
 popd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
+# 修复seafile-server的依赖
+sed -i 's#PKG_BUILD_DEPENDS:=vala/host libevent2 libevent2-openssl libevent2-pthreads libevhtp#PKG_BUILD_DEPENDS:=vala/host libevent2 libevhtp#g' feeds/packages/net/seafile-server/Makefile
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
