@@ -22,8 +22,9 @@ rm -f ./package/kernel/linux/modules/netdevices.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netdevices.mk
 rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
-rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
-wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
+sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+# rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
+# wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 修改network中防火墙等源码包
 rm -rf ./package/network/config/firewall
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/network/config/firewall package/network/config/firewall
@@ -33,9 +34,12 @@ rm -rf ./package/network/utils/iproute2
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/network/utils/iproute2 package/network/utils/iproute2
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
-# 修改替换feeds里的luci-app-firewall加速开关等源码包
-rm -rf ./feeds/luci/applications/luci-app-firewall
-svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
+# 修改feeds里的luci-app-firewall加速开关等源码包
+pushd feeds/luci/applications/luci-app-firewall
+wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch | git apply
+popd
+# rm -rf ./feeds/luci/applications/luci-app-firewall
+# svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
 # 添加5.4内核ACC补丁
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt-latest/master/target/linux/generic/hack-5.4/999-thermal-tristate.patch
@@ -82,12 +86,18 @@ svn co  https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/ker
 # rm -f ./feeds/packages/net/mwan3/files/etc/config/mwan3
 # wget -P ./feeds/packages/net/mwan3/files/etc/config/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/mwan3/files/etc/config/mwan3
 # 修改transmission依赖
-rm -rf ./feeds/packages/net/transmission
-svn co  https://github.com/project-openwrt/packages/trunk/net/transmission feeds/packages/net/transmission
-rm -rf ./feeds/packages/net/transmission-web-control
-svn co  https://github.com/project-openwrt/packages/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
-rm -rf ./feeds/luci/applications/luci-app-transmission
-svn co  https://github.com/project-openwrt/luci/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
+pushd feeds/packages/net/transmission-web-control
+wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch | git apply
+popd
+pushd feeds/luci/applications/luci-app-transmission
+wget -O- https://github.com/zxlhhyccc/acc-imq-bbr/raw/master/master/feeds/luci/applications/luci-app-transmission/patches/001-luci-app-transmission-with-dbengine.patch | git apply
+popd
+# rm -rf ./feeds/packages/net/transmission
+# svn co  https://github.com/project-openwrt/packages/trunk/net/transmission feeds/packages/net/transmission
+# rm -rf ./feeds/packages/net/transmission-web-control
+# svn co  https://github.com/project-openwrt/packages/trunk/net/transmission-web-control feeds/packages/net/transmission-web-control
+# rm -rf ./feeds/luci/applications/luci-app-transmission
+# svn co  https://github.com/project-openwrt/luci/trunk/applications/luci-app-transmission feeds/luci/applications/luci-app-transmission
 # wget -P ./feeds/packages/net/transmission/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission/patches/007-transmission-init.patch
 # 修改sqm-scripts汉化help
 rm -rf ./feeds/packages/net/sqm-scripts
