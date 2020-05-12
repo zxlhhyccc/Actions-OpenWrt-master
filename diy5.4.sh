@@ -10,8 +10,8 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 # luci-compat: 在不足的ACL上启用旧式CBI表单
 # sed -i 's/disabled/Enable/g' feeds/luci/modules/luci-compat/luasrc/view/cbi/footer.htm
 # 替换map.htm适配启用旧式CBI
-rm -f ./feeds/luci/modules/luci-compat/luasrc/view/cbi/map.htm
-wget -P ./feeds/luci/modules/luci-compat/luasrc/view/cbi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-compat/luasrc/view/cbi/map.htm
+# rm -f ./feeds/luci/modules/luci-compat/luasrc/view/cbi/map.htm
+# wget -P ./feeds/luci/modules/luci-compat/luasrc/view/cbi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-compat/luasrc/view/cbi/map.htm
 # 添加默认编译包
 rm -f ./include/target.mk
 wget -P ./include/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/include/target.mk
@@ -38,6 +38,11 @@ svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/ser
 wget -P ./feeds/luci/applications/luci-app-firewall/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/applications/luci-app-firewall/patches/001-luci-app-firewall-Enable-FullCone-NAT.patch
 pushd feeds/luci/applications/luci-app-firewall
 patch -p1 < 001-luci-app-firewall-Enable-FullCone-NAT.patch
+popd
+# 添加wifi的MU-MIMO功能
+wget -P ./feeds/luci/modules/luci-mod-network/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/modules/luci-mod-network/patches/001-wifi-add-MU-MIMO-option.patch
+pushd feeds/luci/modules/luci-mod-network
+patch -p1 < 001-wifi-add-MU-MIMO-option.patch
 popd
 # rm -rf ./feeds/luci/applications/luci-app-firewall
 # svn co https://github.com/project-openwrt/luci/trunk/applications/luci-app-firewall feeds/luci/applications/luci-app-firewall
@@ -133,8 +138,6 @@ pushd feeds/packages/admin/netdata
 patch -p1 < 004-netdata-with-config.patch
 popd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
-# 修复seafile-server的依赖
-sed -i 's#PKG_BUILD_DEPENDS:=vala/host libevent2 libevent2-openssl libevent2-pthreads libevhtp#PKG_BUILD_DEPENDS:=vala/host libevent2 libevhtp#g' feeds/packages/net/seafile-server/Makefile
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
