@@ -103,6 +103,11 @@ pushd feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/netw
 patch -p1 < 0001-luci-add-filter-aaaa-option.patch
 popd
 wget -P ./package/network/services/dnsmasq/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/900-add-filter-aaaa-option.patch
+# 添加dnamasq的多核心dns负载均衡解析
+wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/001-auto-multiple-service-instances.patch
+pushd package/network/services/dnsmasq
+patch -p1 < 001-auto-multiple-service-instances.patch
+popd
 # 修改transmission依赖
 wget -P ./feeds/packages/net/transmission-web-control/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch
 pushd feeds/packages/net/transmission-web-control
