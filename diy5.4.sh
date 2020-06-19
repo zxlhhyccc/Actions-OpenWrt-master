@@ -98,7 +98,7 @@ wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zx
 pushd package/network/services/dnsmasq
 patch -p1 < 0001-dnsmasq-add-filter-aaaa-option.patch
 popd
-wget -P ./feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/network/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/0001-luci-add-filter-aaaa-option.patch
+wget -P ./feeds/luci/modules/luci-mod-network/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/dnsmasq/patches/0001-luci-add-filter-aaaa-option.patch
 pushd feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/network
 patch -p1 < 0001-luci-add-filter-aaaa-option.patch
 popd
