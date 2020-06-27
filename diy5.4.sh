@@ -108,6 +108,8 @@ wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zx
 pushd package/network/services/dnsmasq
 patch -p1 < 001-auto-multiple-service-instances.patch
 popd
+# 修改miniupnpd依赖
+sed -i 's/DEPENDS:=+iptables +libip4tc +IPV6:libip6tc +IPV6:ip6tables +libuuid/DEPENDS:=+iptables +libip4tc +IPV6:libip6tc +IPV6:ip6tables +libuuid +libcap/g' feeds/packages/net/miniupnpd/Makefile
 # 修改transmission依赖
 wget -P ./feeds/packages/net/transmission-web-control/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch
 pushd feeds/packages/net/transmission-web-control
