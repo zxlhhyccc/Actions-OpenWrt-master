@@ -108,6 +108,11 @@ wget -P ./package/network/services/dnsmasq/ https://raw.githubusercontent.com/zx
 pushd package/network/services/dnsmasq
 patch -p1 < 001-auto-multiple-service-instances.patch
 popd
+# 添加k2p的lan/wan
+wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/mt7621/base-files/etc/board.d/patches/000-k2p-network.patch
+pushd target/linux/ramips
+patch -p1 < 000-k2p-network.patch
+popd
 # 修改transmission依赖
 wget -P ./feeds/packages/net/transmission-web-control/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/transmission-web-control/patches/001-transmission-web-control-dbengine.patch
 pushd feeds/packages/net/transmission-web-control
