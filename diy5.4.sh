@@ -110,7 +110,7 @@ pushd package/network/services/dnsmasq
 patch -p1 < 001-auto-multiple-service-instances.patch
 popd
 # 添加k2p的lan/wan
-wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/mt7621/base-files/etc/board.d/patches/000-k2p-network.patch
+wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/000-k2p-network.patch
 pushd target/linux/ramips
 patch -p1 < 000-k2p-network.patch
 popd
@@ -170,6 +170,7 @@ rm -rf ./feeds/packages/net/smartdns
 rm -rf ./feeds/packages/utils/syncthing
 rm -rf ./feeds/luci/applications/luci-app-frpc
 rm -rf ./feeds/luci/applications/luci-app-frps
+rm -rf ./feeds/luci/applications/luci-app-smartdns
 # rm -rf ./feeds/luci/applications/luci-app-ksmbd
 rm -rf ./package/openwrt-package/lean/luci-app-nft-qos
 rm -rf ./package/openwrt-package/lean/nft-qos
