@@ -53,6 +53,8 @@ wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/proj
 wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/pending-5.4/998-add-ndo-do-ioctl.patch
 rm -f ./target/linux/generic/config-5.4
 wget -P ./target/linux/generic/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/config-5.4
+# mwlwifi添加disable-amsdu补丁
+wget -P package/kernel/mwlwifi/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mwlwifi/patches/002-disable-AMSDU.patch
 # 添加bcm53xx默认内核为5.4（在4.14情况下.config确定）
 # rm -f ./target/linux/bcm53xx/Makefile
 # wget -P ./target/linux/bcm53xx/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/4.14-5.4-bcm53xx/Makefile
