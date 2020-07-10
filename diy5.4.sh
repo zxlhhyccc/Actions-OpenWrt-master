@@ -25,6 +25,7 @@ wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhy
 rm -f ./package/kernel/linux/modules/netfilter.mk
 wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/modules/netfilter.mk
 sed -i 's/16384/65536/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # rm -f ./package/kernel/linux/files/sysctl-nf-conntrack.conf
 # wget -P ./package/kernel/linux/files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/linux/files/sysctl-nf-conntrack.conf
 # 修改network中防火墙等源码包
