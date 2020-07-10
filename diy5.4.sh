@@ -155,14 +155,14 @@ popd
 # pushd feeds/packages/admin/netdata
 # patch -p1 < 002-netdata-with-dbengine.patch
 # popd
-# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
-# pushd feeds/packages/admin/netdata
-# patch -p1 < 003-netdata-init-with-TZ.patch
-# popd
-# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
-# pushd feeds/packages/admin/netdata
-# patch -p1 < 004-netdata-with-config.patch
-# popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 003-netdata-init-with-TZ.patch
+popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 004-netdata-with-config.patch
+popd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # 添加samba36
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/samba36 package/network/services/samba36
