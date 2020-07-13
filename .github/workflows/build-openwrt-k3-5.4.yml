@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: rly-5.4-Build OpenWrt
+name: k3-5.4-Build OpenWrt
 
 on:
   repository_dispatch:
@@ -16,16 +16,16 @@ on:
     branches:
       - master
     paths:
-      - 'rly-5.4.config'
+      - 'k3-5.4.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: started
+  watch:
+    types: started
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  CONFIG_FILE: rly-5.4.config
+  CONFIG_FILE: k3-5.4.config
   DIY_SH: diy5.4.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
@@ -100,6 +100,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
+        sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm-k3|TARGET_DEVICES += phicomm-k3|' target/linux/bcm53xx/image/Makefile
         make -j$(nproc) || make -j1 || make -j1 V=s 2>&1 ; echo -e '\a'
         echo "::set-output name=status::success"
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
