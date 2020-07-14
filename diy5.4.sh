@@ -202,4 +202,4 @@ pushd feeds/packages/admin/netdata
 patch -p1 < 000-wifi-auto.patch
 popd
 # busybox：为docker top命令添加ps -ef选项的补丁
-wget -P package/utils/busybox/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
+wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
