@@ -196,5 +196,10 @@ rm -rf ./package/openwrt-package/lean/nft-qos
 # pushd package/openwrt-package/lean
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
+# 打开wifi并设置区域为US、设置频道为157
+wget -P ./package/kernel/mac80211/files/lib/wifi/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/000-wifi-auto.patch
+pushd feeds/packages/admin/netdata
+patch -p1 < 000-wifi-auto.patch
+popd
 # busybox：为docker top命令添加ps -ef选项的补丁
 wget -P package/utils/busybox/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
