@@ -16,7 +16,7 @@ on:
     branches:
       - master
     paths:
-      - 'rly-5.4.config'
+      - 'zxlhhyccc-rly-5.4.config'
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
