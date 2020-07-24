@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: rly-5.4-Build OpenWrt
+name: zxlhhyccc-rly-5.4-Build OpenWrt
 
 on:
   repository_dispatch:
@@ -19,14 +19,14 @@ on:
       - 'rly-5.4.config'
 #  schedule:
 #    - cron: 0 8 * * 5
-#  watch:
-#    types: started
+  watch:
+    types: started
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_URL: https://github.com/zxlhhyccc/packages-master.git
   REPO_BRANCH: master
-  CONFIG_FILE: rly-5.4.config
-  DIY_SH: diy5.4.sh
+  CONFIG_FILE: zxlhhyccc-rly-5.4.config
+  DIY_SH: zxlhhyccc-diy5.4.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
