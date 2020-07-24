@@ -56,6 +56,15 @@ jobs:
 
     - name: Clone source code
       run: git clone $REPO_URL -b $REPO_BRANCH openwrt
+
+    - name: 删除自带插件
+      run: |
+        cd openwrt
+        rm -rf ./package/ctcgfw
+        rm -rf ./package/lean
+        rm -rf ./package/lienol
+        rm -rf ./package/ntlf9t
+        rm -rf ./package/zxlhhyccc
      
     - name: 自定义插件
       run: |
