@@ -23,7 +23,7 @@ on:
     types: started
 
 env:
-  REPO_URL: https://github.com/zxlhhyccc/packages-master.git
+  REPO_URL: https://github.com/zxlhhyccc/openwrt-master.git
   REPO_BRANCH: master
   CONFIG_FILE: zxlhhyccc-rly-5.4.config
   DIY_SH: zxlhhyccc-diy5.4.sh
