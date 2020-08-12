@@ -11,9 +11,9 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 sed -i 's#boardinfo.hostname or "?"#""#g' feeds/luci/themes/luci-theme-material/luasrc/view/themes/material/header.htm
 # 将tty、ksmd等所在服务目录改到系统、网络存储目录
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/luci-app-ksmbd.json
-# sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
-# sed -i 's/services/nas/g' feeds/luci/applications/luci-app-mjpg-streamer/root/usr/share/luci/menu.d/luci-app-mjpg-streamer.json
-# sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-mjpg-streamer/root/usr/share/luci/menu.d/luci-app-mjpg-streamer.json
+sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 # sed -i '25s/libjpeg/libjpeg-turbo/g' feeds/telephony/net/freeswitch/Makefile
 # 替换more.zh_Hans.po
