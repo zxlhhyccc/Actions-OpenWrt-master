@@ -198,6 +198,11 @@ pushd feeds/packages/admin/netdata
 patch -p1 < 004-netdata-with-config.patch
 popd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
+# luci-lib-jsoncs使用int64
+wget -P ./feeds/luci/libs/luci-lib-jsonc/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/luci/libs/luci-lib-jsonc/patches/0001-use_json_object_new_int64.patch
+pushd package/network/services/dnsmasq
+patch -p1 < 0001-use_json_object_new_int64.patch
+popd
 # 添加samba36
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/samba36 package/network/services/samba36
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/luci/applications/luci-app-samba feeds/luci/applications/luci-app-samba
