@@ -15,6 +15,9 @@ sed -i 's/services/nas/g' feeds/luci/applications/luci-app-minidlna/root/usr/sha
 sed -i 's/services/nas/g' feeds/luci/applications/luci-app-mjpg-streamer/root/usr/share/luci/menu.d/luci-app-mjpg-streamer.json
 # sed -i 's/services/nas/g' feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
+# 将htop替换为官方master的htop
+rm -rf ./feeds/packages/admin/htop
+svn co https://github.com/openwrt/packages/trunk/admin/htop feeds/packages/admin/htop
 # sed -i '25s/libjpeg/libjpeg-turbo/g' feeds/telephony/net/freeswitch/Makefile
 # 替换more.zh_Hans.po
 rm -f ./package/lean/default-settings/i18n/more.zh_Hans.po
