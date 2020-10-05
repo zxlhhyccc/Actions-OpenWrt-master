@@ -47,8 +47,6 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo -E swapoff /swapfile
-        sudo -E rm -rf /swapfile
         sudo -E apt-get -qq remove --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell mysql* php* mssql-tools msodbcsql17 android*
         sudo -E apt-get -qq update
         sudo -E apt-get -qq full-upgrade
