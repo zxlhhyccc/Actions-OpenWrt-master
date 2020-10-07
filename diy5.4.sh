@@ -155,9 +155,9 @@ popd
 # pushd target/linux/ramips
 # patch -p1 < 001-mt7621-enable-hw-crypto.patch
 # popd
-wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/0003-mt7621.dtsi-add missing-pinctrl-to-ethernet-node.patch
+wget -P ./target/linux/ramips/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/ramips/patches/0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 pushd target/linux/ramips
-patch -p1 < 0003-mt7621.dtsi-add missing-pinctrl-to-ethernet-node.patch
+patch -p1 < 0003-mt7621.dtsi-add-missing-pinctrl-to-ethernet-node.patch
 popd
 # rtl8812au-ac：更新无线5.8
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
