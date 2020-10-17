@@ -9,6 +9,8 @@
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 # squashfs：使mkfs具有多CPU加速
 sed -i 's/processors 1/processors $(shell nproc)/g' include/image.mk
+# openssl：通过以下方式，使ARMv8设备适配ChaCha20-Poly1305而不是AES-GCM
+sed -i 's/default y if !x86_64 && !aarch64/default y if !x86_64/g' package/libs/openssl/Config.in
 # luci-compat: 在不足的ACL上启用旧式CBI表单
 # sed -i 's/disabled/Enable/g' feeds/luci/modules/luci-compat/luasrc/view/cbi/footer.htm
 # 替换map.htm适配启用旧式CBI
