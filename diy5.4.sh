@@ -59,7 +59,7 @@ wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/proje
 rm -f ./target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
 rm -f ./target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
-wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
 rm -f ./target/linux/generic/hack-5.4/721-phy_packets.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/721-phy_packets.patch
 wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
@@ -193,10 +193,10 @@ rm -rf ./package/openwrt-package/lean/nft-qos
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
 # 打开wifi并设置区域为US、设置频道为157
-# wget -P ./package/kernel/mac80211/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/001-wifi-auto.patch
-# pushd package/kernel/mac80211
-# patch -p1 < 001-wifi-auto.patch
-# popd
+wget -P ./package/kernel/mac80211/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/001-wifi-auto.patch
+pushd package/kernel/mac80211
+patch -p1 < 001-wifi-auto.patch
+popd
 # mac80211：为ath / subsys：在2g上允许vht添加补丁
 wget -P ./package/kernel/mac80211/patches/subsys/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/subsys/600-mac80211-allow-vht-on-2g.patch
 wget -P ./package/kernel/mac80211/patches/ath/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/ath/983-ath10k-allow-vht-on-2g.patch
