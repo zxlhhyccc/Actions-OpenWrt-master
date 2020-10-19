@@ -53,21 +53,21 @@ rm -rf ./feeds/packages/libs/libyaml-cpp
 svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
 # 添加5.4内核ACC、shortcut-fe补丁
 rm -f ./target/linux/generic/hack-5.4/250-netfilter_depends.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/250-netfilter_depends.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/250-netfilter_depends.patch
 rm -f ./target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/650-netfilter-add-xt_OFFLOAD-target.patch
 rm -f ./target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/661-use_fq_codel_by_default.patch
 rm -f ./target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/662-remove_pfifo_fast.patch
 rm -f ./target/linux/generic/hack-5.4/721-phy_packets.patch
-wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/721-phy_packets.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/998-add-ndo-do-ioctl.patch
-wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/hack-5.4/999-thermal-tristate.patch
+wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/721-phy_packets.patch
+wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
+wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/953-net-patch-linux-kernel-to-support-shortcut-fe.patch
+wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/998-add-ndo-do-ioctl.patch
+wget -P target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/999-thermal-tristate.patch
 # 修复pending-5.4部分补丁及添加imq模块补丁
-wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
+wget -P target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/601-add-kernel-imq-support.patch
 rm -f ./target/linux/generic/pending-5.4/655-increase_skb_pad.patch
 wget -P ./target/linux/generic/pending-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/pending-5.4/655-increase_skb_pad.patch
 rm -f ./target/linux/generic/pending-5.4/680-NET-skip-GRO-for-foreign-MAC-addresses.patch
