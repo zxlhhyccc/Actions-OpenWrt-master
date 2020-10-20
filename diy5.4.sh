@@ -206,5 +206,5 @@ svn co https://github.com/zxlhhyccc/openwrt-master/trunk/target/linux/rockchip/p
 # busybox：为docker top命令添加ps -ef选项的补丁
 wget -P ./package/utils/busybox/patches/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/utils/busybox/patches/900-add-e-f-option-for-docker.patch
 # golang更新到1.15.3
-sed -i 's/GO_VERSION_PATCH:=2/GO_VERSION_PATCH:=3/g' feeds/packages/lang/golang/golang/Makefile
-sed -i 's/28bf9d0bcde251011caae230a4a05d917b172ea203f2a62f2c2f9533589d4b4d/896a602570e54c8cdfc2c1348abd4ffd1016758d0bd086ccd9787dbfc9b64888/g' feeds/packages/lang/golang/golang/Makefile
+# sed -i 's/GO_VERSION_PATCH:=2/GO_VERSION_PATCH:=3/g' feeds/packages/lang/golang/golang/Makefile
+# sed -i 's/28bf9d0bcde251011caae230a4a05d917b172ea203f2a62f2c2f9533589d4b4d/896a602570e54c8cdfc2c1348abd4ffd1016758d0bd086ccd9787dbfc9b64888/g' feeds/packages/lang/golang/golang/Makefile
