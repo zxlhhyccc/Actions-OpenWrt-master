@@ -192,7 +192,7 @@ rm -rf ./package/openwrt-package/lean/nft-qos
 # pushd package/openwrt-package/lean
 # unzip luci-app-flowoffload-master-NAT.zip
 # popd
-# 打开wifi并设置区域为US、设置频道为157
+# 打开wifi并设置区域为US
 wget -P ./package/kernel/mac80211/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/kernel/mac80211/patches/001-wifi-auto.patch
 pushd package/kernel/mac80211
 patch -p1 < 001-wifi-auto.patch
