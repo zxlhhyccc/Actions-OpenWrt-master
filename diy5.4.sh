@@ -33,6 +33,9 @@ svn co https://github.com/project-openwrt/openwrt/branches/master/package/networ
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/shellsync package/network/services/shellsync
+# MWAN3回退到2.8.12版本以适配多拨
+rm -rf ./feeds/packages/net/mwan3
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/mwan3 feeds/packages/net/mwan3
 # 关闭https-dns-proxy自启动
 sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.config
 sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.init
