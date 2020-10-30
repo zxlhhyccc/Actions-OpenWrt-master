@@ -169,6 +169,15 @@ wget -P ./feeds/luci/libs/luci-lib-jsonc/ https://raw.githubusercontent.com/zxlh
 pushd feeds/luci/libs/luci-lib-jsonc
 patch -p1 < 0001-use_json_object_new_int64.patch
 popd
+# 屏蔽socat/openvpn的与luci冲突的config、init以编译luci
+wget -P ./feeds/packages/net/socat/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/socat/patches/001-shield-socat-config-init.patch
+pushd feeds/packages/net/socat
+patch -p1 < 001-shield-socat-config-init.patch
+popd
+wget -P ./package/network/services/openvpn/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/openvpn/patches/001-shield-config.patch
+pushd package/network/services/openvpn
+patch -p1 < 001-shield-config.patch
+popd
 # 添加samba36
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/samba36 package/network/services/samba36
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/luci/applications/luci-app-samba feeds/luci/applications/luci-app-samba

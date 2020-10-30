@@ -22,6 +22,15 @@ sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/shar
 # 替换more.zh_Hans.po
 rm -f ./package/op-package/lean/default-settings/i18n/more.zh_Hans.po
 wget -P ./package/op-package/lean/default-settings/i18n/ https://raw.githubusercontent.com/project-openwrt/openwrt/master/package/lean/default-settings/i18n/more.zh_Hans.po
+# 屏蔽socat/openvpn的与luci冲突的config、init以编译luci
+wget -P ./feeds/packages/net/socat/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/net/socat/patches/001-shield-socat-config-init.patch
+pushd feeds/packages/net/socat
+patch -p1 < 001-shield-socat-config-init.patch
+popd
+wget -P ./package/network/services/openvpn/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/network/services/openvpn/patches/001-shield-config.patch
+pushd package/network/services/openvpn
+patch -p1 < 001-shield-config.patch
+popd
 # 删除feeds里的与自有包冲突插件
 rm -rf ./feeds/packages/net/frp
 rm -rf ./feeds/packages/net/kcptun
