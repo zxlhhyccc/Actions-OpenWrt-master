@@ -7,6 +7,11 @@
 #=================================================
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+# rc.common兼容新旧格式插件
+wget -P ./package/base-files/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/package/base-files/001-fix-rc.common.patch
+pushd package/base-files
+patch -p1 < 001-fix-rc.common.patch
+popd
 # squashfs：使mkfs具有多CPU加速
 sed -i 's/processors 1/processors $(shell nproc)/g' include/image.mk
 # openssl：通过以下方式，使ARMv8设备适配ChaCha20-Poly1305而不是AES-GCM
