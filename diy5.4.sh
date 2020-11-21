@@ -32,15 +32,15 @@ sed -i 's/7440/7200/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 rm -rf ./package/network/config/firewall
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/network/config/firewall package/network/config/firewall
 rm -rf ./package/network/utils/iptables
-svn co https://github.com/project-openwrt/openwrt/branches/master/package/network/utils/iptables package/network/utils/iptables
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iptables package/network/utils/iptables
 rm -rf ./package/network/utils/iproute2
-svn co https://github.com/project-openwrt/openwrt/branches/master/package/network/utils/iproute2 package/network/utils/iproute2
+svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/utils/iproute2 package/network/utils/iproute2
 rm -rf ./package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/uhttpd package/network/services/uhttpd
 svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/package/network/services/shellsync package/network/services/shellsync
 # MWAN3回退到2.8.12版本以适配多拨
-rm -rf ./feeds/packages/net/mwan3
-svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/mwan3 feeds/packages/net/mwan3
+# rm -rf ./feeds/packages/net/mwan3
+# svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/net/mwan3 feeds/packages/net/mwan3
 # 关闭https-dns-proxy自启动
 sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.config
 sed -i 's/'*'/''/g' feeds/packages/net/https-dns-proxy/files/https-dns-proxy.init
@@ -57,8 +57,8 @@ popd
 # 更新htop、libyaml-cpp
 rm -rf ./feeds/packages/admin/htop
 svn co https://github.com/project-openwrt/packages/trunk/admin/htop feeds/packages/admin/htop
-rm -rf ./feeds/packages/libs/libyaml-cpp
-svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
+# rm -rf ./feeds/packages/libs/libyaml-cpp
+# svn co https://github.com/project-openwrt/packages/trunk/libs/libyaml-cpp feeds/packages/libs/libyaml-cpp
 # 添加5.4内核ACC、shortcut-fe补丁
 rm -f ./target/linux/generic/hack-5.4/250-netfilter_depends.patch
 wget -P ./target/linux/generic/hack-5.4/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/target/linux/generic/hack-5.4/250-netfilter_depends.patch
@@ -160,13 +160,17 @@ popd
 # pushd feeds/packages/admin/netdata
 # patch -p1 < 002-netdata-with-dbengine.patch
 # popd
-wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/003-netdata-init-with-TZ.patch
+# pushd feeds/packages/admin/netdata
+# patch -p1 < 003-netdata-init-with-TZ.patch
+# popd
+# wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
+# pushd feeds/packages/admin/netdata
+# patch -p1 < 004-netdata-with-config.patch
+# popd
+wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/000-netdata-delete-config.patch
 pushd feeds/packages/admin/netdata
-patch -p1 < 003-netdata-init-with-TZ.patch
-popd
-wget -P ./feeds/packages/admin/netdata/ https://raw.githubusercontent.com/zxlhhyccc/acc-imq-bbr/master/master/feeds/packages/admin/netdata/patches/004-netdata-with-config.patch
-pushd feeds/packages/admin/netdata
-patch -p1 < 004-netdata-with-config.patch
+patch -p1 < 000-netdata-delete-config.patch
 popd
 # svn co https://github.com/zxlhhyccc/acc-imq-bbr/trunk/master/feeds/packages/libs/libJudy feeds/packages/libs/libJudy
 # luci-lib-jsoncs使用int64
